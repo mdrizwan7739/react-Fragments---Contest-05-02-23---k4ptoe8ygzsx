@@ -10,7 +10,7 @@ const App = () => {
 
 
   const onButtonClick = () => {
-    setList([])
+    setList(Array.from({length : `${value}`},(v,i)=>i))
     for (let i = 1; i < Number(value)+1; i++) {
       
       setList((prev) => [...prev, i]);
@@ -29,7 +29,11 @@ const App = () => {
       <input id="input" onChange={onInputChange} />
       <button id="button" onClick={onButtonClick}>Click</button>
        <ul id="list">
-      <List listx={list} />
+        {
+        list.map((item,i) =>{
+           return <List listx={i+1} />
+        })
+}
       </ul>
     </div>
   );
